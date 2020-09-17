@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- jquery ui css -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="js/wow-alert.js"></script>
+
+
+    <title></title>
+    <style>
+    *{
+      box-sizing: border-box;
+    }
+    a{
+      text-decoration: none;
+      color: yellow;
+    }
+    body{
+      background-color: #247ba0;
+      color: white;
+      font-size: 30px;
+      padding-left: 20px;
+    }
+    .container{
+
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .sub-container{
+      padding: 100px;
+    }
+      .devider{
+        width: 100%;
+        height: 50px;
+      }
+      input{
+        width: 100%;
+        height: 30px;
+        border: 2px solid red;
+        border: none;
+        padding: 15px;
+        border-bottom: 3px solid #fff;
+        background:#247ba0;
+        outline: none;
+      }
+      button{
+        padding: 10px;
+        border-radius: 20px;
+        outline: none;
+        border: 2px solid #fff;
+        color: #fff;
+        background: orange;
+        font-size: 20px;
+        margin: 20px auto;
+      }
+      button:hover{
+        color: #000;
+        background: #fff;
+        border: 2px solid #000;
+      }
+      span{
+        color: red;
+      }
+
+      /* styling accordion jquery UI*/
+
+
+      .about-links{
+        padding: 100px;
+      }
+      .ui-accordion-header{
+        padding: 5px!important;
+        text-align: center;
+        background: orange;
+        color: #fff;
+        text-transform: capitalize;
+        font-size: 30px!important;
+        margin: 5px 0!important;
+        border-radius: 10px;
+      }
+      .ui-accordion .ui-accordion-content{
+        background: #b5c2b7;
+        font-size: 30px;
+        line-height: 1.8;
+        color: #f5f3f5;
+        border-radius: 10px;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="sub-container">
+        <h1>Programs</h1>
+          <form id="myForm">
+          Enter the 3 digits to find the program: <input id="number" value=""> <br>
+          The card program is: <input id="program" value=""> <br>
+          </form>
+          <button onclick="programs()">Click here</button>
+        <!-- <input type="button" onclick="myFunction()" value="Reset form"> -->
+        <button onclick="myFunction()">Reset Form</button>
+
+        <div class="devider"></div>
+
+          <h1>Card Decline Codes</h1>
+          <form id="myForm2">
+          Enter the code number: <input id="number2" value=""> <br>
+          This is the description: <input id="program2" value=""> <br>
+          </form>
+          <button onclick="codes()">Click here</button>
+        <!-- <input type="button" onclick="myFunction2()" value="Reset form"> -->
+        <button onclick="myFunction2()">Reset Form</button>
+
+
+
+
+      </div>
+      <div class="about">
+        <article class="about-links">
+          <h1>Frequent ask by clients</h1>
+          <div id="accordion">
+            <h3>Removing a social SSN</h3>
+            <div>Sytem Administration <span>=></span> cs manage tools
+              <span>=></span> SSN update <span>=></span> card program
+              <span>=></span> enter the clientID</div>
+                <h3>Returning a DD</h3>
+                <div>CH account <span>=></span> account info
+                  <span>=></span> payment history <span>=></span>
+                  pick the one requested and then push or
+                  click on return</div>
+                <h3>ACH Review</h3>
+                    <div>System Administration <span>=></span> other tools <span>=></span> ACH debit
+                      block review
+                    Next, copy the transID from email <span>=></span> control  F and
+                    paste the transID so you can find it, could be in page 1 or page 2
+                     when you find the ACH, copy the Dest Account located on
+                     top of the ACH details <span>=></span> then paste it on the CST
+                     to see if there is enough money to cover the amount if
+                     there is enough go ahead and post it, if there not just go ahead and return it.
+                   </div>
+                <h3>ECC password reset</h3>
+                <div>If you do not see the program in beta CSA, go to confluence <span>=></span> client support <span>=></span> top right link
+               click on PROD internal CST <span>=></span> then cstcsa login <span>=></span> here you should find the program ECC and here you can reset it.
+               Note:<span>=>=>=></span> If you open the PROD internal CST and then leads you to a different link product or company, you have to reset it
+              by going to the link in PROD CST GO.PHP <span>=></span> internal.galileoprocessing.com and this will reset it back to normal.</div>
+              <h3>Activating a card</h3>
+              <div>Activating a card <span>=></span> System Administration <span>=></span> change card status => enter card number and then select the card status to active.</div>
+              <h3>Checking funds from a canceled check</h3>
+              <div>Customer Account <span>=></span> account info <span>=></span> adjustment history to see when the check was issued.
+               Then go to pragram refund account <span>=></span> bill payments <span>=></span> enter the dates a day before and the date of the check.
+               grab the paymentID and paste on the CH account notes to compare <span>=></span> then go to all transactions to see if the payment is there.
+              If payment is back on the refund account it will say BILL PAY REFUND on the description.</div>
+              <h3>Trasfering funds</h3>
+              <div>Refund account <span>=></span> finance bar <span>=></span> insert adjustment <span>=></span> enter the negative amount <span>=></span> type "v" <span>=></span> then type in comments: transferring funds from a canceled check to CH.
+               CH account <span>=></span> finance bar <span>=></span> insert adjustment <span>=></span> enter the positive amount => type "v" <span>=></span> then type in comments: funds returning from refund account to CH account from canceled check.</div>
+               <h3>Post a DD marked for return</h3>
+               <div>System Administration <span>=></span> other tools <span>=></span> pending ACH returns <span>=></span>
+               chose super all <span>=></span> then paste transID <span>=></span> click update and DD will show <span>=></span>
+              here chose "E" for return <span>=></span> then go to DD clearing and find the return and the click in process in change
+              <span>=></span> and you are done. </div>
+              <h3>misceleaneus</h3>
+              <div> When you see pending transaction in all transactions tab, you can go to misceleaneus to remove the hold days
+              by changing it to "zero" <span>=></span> then click update and the amount posted should show up on the balance. </div>
+              <h3>When working with CV</h3>
+              <div>In here you do not need your CSA login you use your regular cst username
+              but your password should be different from your regular cst login that sometimes someone has to reset it for you.</div>
+              <h3>Refunds time frame</h3>
+              <div><span>=></span> Canceled check takes from 24-36 hours for refunds to return. <br>
+              <span>=></span> Expedited check takes 2 business day. <br>
+              <span>=></span> When refund check is sent out standard mail it will take from 7 to 14 business days.</div>
+              <h3>Transferring funds</h3>
+              <div>Refund account <span>=></span> finance bar <span>=></span> insert adjustment <span>=></span> enter the negative amount <span>=></span> type "v" <span>=></span> then type in comments: transferring funds from a canceled check to CH.
+        CH account <span>=></span> finance bar <span>=></span> insert adjustment <span>=></span> enter the positive amount <span>=></span> type "v" <span>=></span> then type in comments: funds returning from refund account to CH account from canceled check.</div>
+          </div>
+        </article>
+      </div>
+
+
+    </div>
+
+
+    <script>
+
+    $(document).ready(function(){
+      $( "#accordion" ).accordion({
+        collapsible: true
+      });
+    })
+
+
+
+
+      function programs(){
+        var inputValue = document.getElementById("number").value;
+        var number = document.getElementById("number");
+        number.style.color = "orange";
+        number.style.fontSize = "25px";
+        var program = document.getElementById("program");
+        program.style.color = "orange";
+        program.style.fontSize = "25px";
+        if(inputValue == 248){
+          document.getElementById("program").value = "Chime debit";
+        }
+        else if(inputValue == 156){
+          document.getElementById("program").value = "1debit";
+        }
+        else if(inputValue == 275){
+          document.getElementById("program").value = "Oxigen";
+        }
+        else if(inputValue == 992){
+          document.getElementById("program").value = "Varo";
+        }
+        else if(inputValue == 883){
+          document.getElementById("program").value = "SMI Texas";
+        }
+        else if(inputValue == 151){
+          document.getElementById("program").value = "Precash";
+        }
+        else if(inputValue == 280){
+          document.getElementById("program").value = "SMI Colorado";
+        }
+        else if(inputValue == 450){
+          document.getElementById("program").value = "Cascade Visa Pripaid";
+        }
+        else if(inputValue == 741){
+          document.getElementById("program").value = "MetaBank Visa";
+        }
+        else if(inputValue == 231){
+          document.getElementById("program").value = "Payzone";
+        }
+        else if(inputValue == 246){
+          document.getElementById("program").value = "Insight Mobile Banking";
+        }
+        else if(inputValue == 145){
+          document.getElementById("program").value = "Cash Express";
+        }
+        else if(inputValue == 321){
+          document.getElementById("program").value = "MetaBank";
+        }
+        else if(inputValue == 191){
+          document.getElementById("program").value = "Amigo Money";
+        }
+        else if(inputValue == 415){
+          document.getElementById("program").value = "NexCard MCB";
+        }
+        else if(inputValue == 416){
+          document.getElementById("program").value = "Avid";
+        }
+        else if(inputValue == 186){
+          document.getElementById("program").value = "Groundswell";
+        }
+        else if(inputValue == 149){
+          document.getElementById("program").value = "SMI GPR";
+        }
+        else if(inputValue == 148){
+          document.getElementById("program").value = "SMI North Caroline + all";
+        }
+        else if(inputValue == 272){
+          document.getElementById("program").value = "Mesh Pay";
+        }
+        else if(inputValue == 157){
+          document.getElementById("program").value = "BuyrightRBK";
+        }
+        else if(inputValue == 152){
+          document.getElementById("program").value = "Only1 VisaRBK";
+        }
+        else if(inputValue == 227){
+          document.getElementById("program").value = "NexCard Business";
+        }
+        else if(inputValue == 179){
+          document.getElementById("program").value = "PPV Payroll";
+        }
+        else if(inputValue == 280){
+          document.getElementById("program").value = "SMI Colorado";
+        }
+        else if(inputValue == 321){
+          document.getElementById("program").value = "MetaBank";
+        }
+        else if(inputValue == 245){
+          document.getElementById("program").value = "COGNI";
+        }
+        else if(inputValue == 910){
+          document.getElementById("program").value = "SMI West Virginia";
+        }
+        else if(inputValue == 211){
+          document.getElementById("program").value = "ePlata";
+        }
+        else if(inputValue == 258){
+          document.getElementById("program").value = "SMI Ohio";
+        }
+        else if(inputValue == 260){
+          document.getElementById("program").value = "Lili Fiancial Services";
+        }
+        else if(inputValue == 274){
+          document.getElementById("program").value = "EchoPay";
+        }
+        else if(inputValue == 202){
+          document.getElementById("program").value = "OneInc";
+        }
+        else if(inputValue == 903){
+          document.getElementById("program").value = "Attain Finance (MCB)";
+        }
+        else if(inputValue == 163){
+          document.getElementById("program").value = "SMI Florida";
+        }
+        else if(inputValue == 411){
+          document.getElementById("program").value = "NexCard";
+        }
+        else if(inputValue == 883){
+          document.getElementById("program").value = "SMI Texas";
+        }
+        else if(inputValue == 221){
+          document.getElementById("program").value = "Blue Penguin";
+        }
+        else if(inputValue == 136){
+          document.getElementById("program").value = "Insight";
+        }
+        else if(inputValue == 164){
+          document.getElementById("program").value = "CashPass MCB";
+        }
+        else if(inputValue == 163){
+          document.getElementById("program").value = "SMI Florida";
+        }
+        else if(inputValue == 251){
+          document.getElementById("program").value = "Datawave Money Mart";
+        }
+        else if(inputValue == 126){
+          document.getElementById("program").value = "InComm Cash 4 U";
+        }
+        else if(inputValue == 151){
+          document.getElementById("program").value = "Precash";
+        }
+        else if(inputValue == 11){
+          document.getElementById("program").value = "Wired Plastic";
+        }
+        else if(inputValue == 234){
+          document.getElementById("program").value = "Fit Pay";
+        }
+        else if(inputValue == 223){
+          document.getElementById("program").value = "Aspiration";
+        }
+        else if(inputValue == 101){
+          document.getElementById("program").value = "Buyright";
+        }
+        else if(inputValue == 150){
+          document.getElementById("program").value = "Cashpass";
+        }
+        else if(inputValue == 951){
+          document.getElementById("program").value = "Amscot";
+        }
+        else if(inputValue == 625){
+          document.getElementById("program").value = "Green Light me";
+        }
+        else if(inputValue == 233){
+          document.getElementById("program").value = "Glint Pay";
+        }
+        else if(inputValue == 241){
+          document.getElementById("program").value = "Datawave Horizon Plus";
+        }
+        else if(inputValue == 133){
+          document.getElementById("program").value = "Yo Its Me";
+        }
+
+      }
+      function myFunction(){
+        document.getElementById("myForm").reset();
+
+      }
+
+      function codes(){
+        var description = document.getElementById("number2").value;
+
+        var number = document.getElementById("number2");
+        number.style.color = "orange";
+        number.style.fontSize = "25px";
+        var program = document.getElementById("program2");
+        program.style.color = "orange";
+        program.style.fontSize = "25px";
+        if(description == 6){
+          document.getElementById("program2").value = "Error";
+        }
+        else if(description == 10){
+          document.getElementById("program2").value = "Partial Approval";
+        }
+        else if(description == 14){
+          document.getElementById("program2").value = "Invalid PAN";
+        }
+        else if(description == 30){
+          document.getElementById("program2").value = "Format Error";
+        }
+        else if(description == 41){
+          document.getElementById("program2").value = "Lost Fraud Pick up";
+        }
+        else if(description == 43){
+          document.getElementById("program2").value = "Stolen Fraud Pick up";
+        }
+        else if(description == 51){
+          document.getElementById("program2").value = "No Sufficient Funds";
+        }
+        else if(description == 54){
+          document.getElementById("program2").value = "Card Expired";
+        }
+        else if(description == 55){
+          document.getElementById("program2").value = "Invalid Pin";
+        }
+        else if(description == 57){
+          document.getElementById("program2").value = "Transaction not permitted to cardholder";
+        }
+        else if(description == 58){
+          document.getElementById("program2").value = "Transaction not permitted";
+        }
+        else if(description == 59){
+          document.getElementById("program2").value = "Suspected Fraud (visa only)";
+        }
+        else if(description == 62){
+          document.getElementById("program2").value = "Restricted card";
+        }
+        else if(description == 63){
+          document.getElementById("program2").value = "Security violation";
+        }
+        else if(description == 61){
+          document.getElementById("program2").value = "Exceeds amount limit";
+        }
+        else if(description == 65){
+          document.getElementById("program2").value = "Exceeds count limit";
+        }
+        else if(description == 75){
+          document.getElementById("program2").value = "Pin count Exceeded";
+        }
+        else if(description == 85){
+          document.getElementById("program2").value = "AVS only (no reason to decline)";
+        }
+        else if(description == 87){
+          document.getElementById("program2").value = "Partial Approval(post amount only not cash)";
+        }
+        else if(description == 96){
+          document.getElementById("program2").value = "System error";
+        }
+        else if(description == "N7"){
+          document.getElementById("program2").value = "Invalid CVV2(Visa only)";
+        }
+        else if(description == 0){
+          document.getElementById("program2").value = "Approved";
+        }
+        else if(description == 1){
+          document.getElementById("program2").value = "Issuer error";
+        }
+        else if(description == 3){
+          document.getElementById("program2").value = "Invalid merchand decline";
+        }
+        else if(description == 4){
+          document.getElementById("program2").value = "Captured card";
+        }
+        else if(description == 5){
+          document.getElementById("program2").value = "Do not honor/ cvv2 mismatch";
+        }
+        else if(description == 8){
+          document.getElementById("program2").value = "Honor with ID";
+        }
+        else if(description == 11){
+          document.getElementById("program2").value = "Settled authorization without pre-auth";
+        }
+        else if(description == 12){
+          document.getElementById("program2").value = "Invalid Transaction";
+        }
+        else if(description == 13){
+          document.getElementById("program2").value = "Invalid amount";
+        }
+        else if(description == 15){
+          document.getElementById("program2").value = "Invalid issuer";
+        }
+
+      }
+      function myFunction2(){
+        document.getElementById("myForm2").reset();
+
+      }
+
+
+
+
+    </script>
+  </body>
+</html>
